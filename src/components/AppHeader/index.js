@@ -10,7 +10,7 @@ export default  ({name,icon}) => {
             minWidth: "calc( 100vw - 69px )",
             height: "60px"
         }}>
-            <h2 className='font-bold text-lg'>
+            <h2 className='font-bold text-lg text-blue-700'>
                 <i className={"mr-2 " + icon}></i> {name}
             </h2>
             <div className="py-5">

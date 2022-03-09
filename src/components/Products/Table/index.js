@@ -40,10 +40,13 @@ export const Table = () => {
                         46,53%
                     </td>
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
-                        <button className="bg-transparent">
-                            <i class="fas fa-eye text-blueGray-400"></i>
-                        </button>
-                        <Product data={{name:"test"}} isUpdate handle={()=>{console.log("test")}}>
+                        <Product data={{ name: "test" }} isView isUpdate handle={() => { console.log("test") }}>
+                            <button className="bg-transparent">
+                                <i class="fas fa-eye text-blueGray-400"></i>
+                            </button>
+                        </Product>
+
+                        <Product >
 
                             <button className="bg-transparent ml-4">
                                 <i class="fas fa-pen text-blueGray-400"></i>

@@ -1,13 +1,16 @@
 import React from 'react'
+import { Product } from '../Product'
 
 export const Toolbar = () => {
   return (
     <>
 
-      <button className='block ml-auto mb-3 bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded'>
-        <i className='fas fa-plus '></i>
-        {/* Product */}
-      </button>
+      <Product>
+        <button className='block ml-auto mb-3 bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded'>
+          <i className='fas fa-plus '></i>
+        </button>
+      </Product>
+
       <div className='mb-2 bg-white shadow-lg p-3 rounded flex items-center'>
         <div class="border-2 py-2 px-3 flex justify-between rounde-md rounded-md w-3/4">
           <input class="flex-grow outline-none text-gray-600 focus:text-blue-600" type="text" placeholder="Search Product..." />
