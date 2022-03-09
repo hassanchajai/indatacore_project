@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import { Product } from "../Product"
 
 /* eslint-disable import/no-anonymous-default-export */
-export const Table = () => {
+export const Table = ({data,handle}) => {
     const onClickDelete = (Product) => {
         Swal.fire({
             title: `Do you want to delete this Product  ?`,
@@ -41,34 +41,37 @@ export const Table = () => {
             </thead>
 
             <tbody className="">
-                <tr>
-                    <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                        Test
-                    </th>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                        120£
-                    </td>
-                    <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        20%
-                    </td>
-                   
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
-                        <Product data={{ name: "test" }} isView isUpdate handle={() => { console.log("test") }}>
-                            <button className="bg-transparent">
-                                <i class="fas fa-eye text-blueGray-400"></i>
-                            </button>
-                        </Product>
-
-                        <Product >
-                            <button className="bg-transparent ml-4">
-                                <i class="fas fa-pen text-blueGray-400"></i>
-                            </button>
-                        </Product>
-                        <button className="bg-transparent ml-4" onClick={onClickDelete}>
-                            <i class="fas fa-trash text-blueGray-400"></i>
-                        </button>
-                    </td>
-                </tr>
+                {data.map((item, index) => (
+                       <tr>
+                       <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                          {item.name}
+                       </th>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                           {item.price}$
+                       </td>
+                       <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            {item.tva}%
+                       </td> 
+                      
+                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
+                           <Product data={item} isView isUpdate handle={() => { console.log("test") }}>
+                               <button className="bg-transparent">
+                                   <i class="fas fa-eye text-blueGray-400"></i>
+                               </button>
+                           </Product>
+   
+                           <Product data={item} handle={handle}>
+                               <button className="bg-transparent ml-4">
+                                   <i class="fas fa-pen text-blueGray-400"></i>
+                               </button>
+                           </Product>
+                           <button className="bg-transparent ml-4" onClick={onClickDelete}>
+                               <i class="fas fa-trash text-blueGray-400"></i>
+                           </button>
+                       </td>
+                   </tr>
+                ))}
+             
             </tbody>
         </table></>)
 }

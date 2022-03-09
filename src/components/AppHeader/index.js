@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
 import { useNavigate } from 'react-router'
@@ -8,6 +9,7 @@ export default ({ name, icon }) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const navigate = useNavigate()
     const handleonSignOut = () => {
+        localStorage.removeItem('token')
         navigate(routeNames.signin)
     }
     return (
@@ -27,7 +29,6 @@ export default ({ name, icon }) => {
                     </div>
                     {
                         isOpen && (<>  <div class="fixed inset-0 h-full w-full z-10"></div>
-
                             <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20" onClick={() => setIsOpen(prev => !prev)}>
                                 <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                                     your profile

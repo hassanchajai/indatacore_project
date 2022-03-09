@@ -14,16 +14,14 @@ export const Product = ({
     isView
 }) => {
     const [product, setproduct] = useState(data);
-    const [isClicked, setIsClicked] = useState(false);
+
     const handleonChange = (e) => {
         setproduct({ ...product, [e.target.name]: e.target.value });
     };
-    useEffect(() => {
-        if (isClicked) {
-            handle(product);
-            setIsClicked(false);
-        }
-    }, [isClicked]);
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+        handle(product)
+    }
     return (
         <Popup trigger={children} modal={true} position="center center">
             {(close) => (
@@ -41,7 +39,7 @@ export const Product = ({
                     </div>
                     <hr className="mb-4" />
                     {!isView ? (
-                        <form >
+                        <form onSubmit={handleOnSubmit} >
                             <div className="relative z-0 mb-6 w-full group">
                                 <input
                                     name="name"
@@ -50,8 +48,8 @@ export const Product = ({
                                     placeholder=" "
                                     type="text"
                                     required
-                                // value={value}
-                                // onChange={(e) => setValue(e.target.value)}
+                                    value={product.name}
+                                    onChange={handleonChange}
                                 // size="44"
                                 />
                                 <label
@@ -63,12 +61,14 @@ export const Product = ({
                             </div>
                             <div className="relative z-0 mb-6 w-full group">
                                 <input
-                                    name="name"
+                                    name="price"
                                     id="floating_company"
                                     className="block py-3.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                     placeholder=" "
-                                    type="text"
+                                    type="number"
                                     required
+                                    value={product.price}
+                                    onChange={handleonChange}
                                 // value={value}
                                 // onChange={(e) => setValue(e.target.value)}
                                 // size="44"
@@ -85,7 +85,8 @@ export const Product = ({
                                     name="tva"
                                     id="floating_company"
                                     className="block py-3.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-
+                                    value={product.tva}
+                                    onChange={handleonChange}
                                 // value={value}
                                 // onChange={(e) => setValue(e.target.value)}
                                 // size="44"
@@ -99,7 +100,7 @@ export const Product = ({
                                     for="floating_email"
                                     className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                 >
-                                    Price
+                                    Tva
                                 </label>
                             </div>
                             <button
@@ -143,7 +144,7 @@ export const Product = ({
                                     <hr />
 
                                 </div>
-                             
+
                             </div>
 
 
