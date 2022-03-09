@@ -1,10 +1,15 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
+import { useNavigate } from 'react-router'
+import { routeNames } from '../../helpers'
 import Avatar from '../Avatar'
 
-export default  ({name,icon}) => {
+export default ({ name, icon }) => {
     const [isOpen, setIsOpen] = React.useState(false)
-
+    const navigate = useNavigate()
+    const handleonSignOut = () => {
+        navigate(routeNames.signin)
+    }
     return (
         <header className="flex items-center justify-between bg-white text-gray-700 shadow p-4" style={{
             minWidth: "calc( 100vw - 69px )",
@@ -16,7 +21,7 @@ export default  ({name,icon}) => {
             <div className="py-5">
 
                 <div className="relative my-32">
-                    <div className='z-100 relative ' onClick={() => setIsOpen(prev=>!prev)}>
+                    <div className='z-100 relative ' onClick={() => setIsOpen(prev => !prev)}>
                         <Avatar ></Avatar>
                         {/* <i className='fa fa-chevron-down text-gray ml-2 text-sm mt-4'></i> */}
                     </div>
@@ -30,13 +35,11 @@ export default  ({name,icon}) => {
                                 <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                                     Your projects
                                 </a>
-                                <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                                    Help
-                                </a>
+
                                 <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                                     Settings
                                 </a>
-                                <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                                <a onClick={handleonSignOut} href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                                     Sign Out
                                 </a>
                             </div>
@@ -46,5 +49,5 @@ export default  ({name,icon}) => {
                 </div>
             </div>
         </header>
-  )
+    )
 }
