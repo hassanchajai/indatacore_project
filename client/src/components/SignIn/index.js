@@ -56,7 +56,7 @@ const SignIn = ({ user, login }) => {
                                 <div className="mb-6">
                                     <button type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Sign in</button>
                                 </div>
-                                <p className="text-sm text-center text-gray-400">  Already have an account?  <Link to={routeNames.signup} className="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">Sign In</Link>.</p>
+                                <p className="text-sm text-center text-gray-400">  Already have an account?  <Link to={routeNames.signup} className="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">Sign Up</Link>.</p>
                             </form>
                         </div>
                     </div>

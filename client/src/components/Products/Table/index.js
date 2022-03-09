@@ -60,7 +60,7 @@ export const Table = ({data,handle}) => {
                                </button>
                            </Product>
    
-                           <Product data={item} handle={handle}>
+                           <Product data={item} handle={handle} isUpdate>
                                <button className="bg-transparent ml-4">
                                    <i class="fas fa-pen text-blueGray-400"></i>
                                </button>
