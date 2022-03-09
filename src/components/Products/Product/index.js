@@ -30,7 +30,7 @@ export const Product = ({
                 <div className="p-3">
                     <div className="flex justify-between mb-2">
                         <h2 className="font-bold">
-                            {!isView ? (isUpdate ? "Update" : "Add") : ""} Product
+                            {!isView ? (isUpdate ? "Update" : "Add") : "Detail"} Product
                         </h2>
                         <a
                             className="close text-lg cursor-pointer"
