@@ -1,7 +1,25 @@
+import Swal from "sweetalert2";
 import { Product } from "../Product"
 
 /* eslint-disable import/no-anonymous-default-export */
 export const Table = () => {
+    const onClickDelete = (Product) => {
+        Swal.fire({
+            title: `Do you want to delete this Product  ?`,
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Ok",
+            denyButtonText: `No`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+             
+                Swal.fire("Product Deleted Successfuly!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("Product has not deleted", "", "info");
+            }
+        });
+    };
     return (<>
         <table class="items-center bg-transparent w-full border-collapse overflow-y-auto">
             <thead>
@@ -47,12 +65,11 @@ export const Table = () => {
                         </Product>
 
                         <Product >
-
                             <button className="bg-transparent ml-4">
                                 <i class="fas fa-pen text-blueGray-400"></i>
                             </button>
                         </Product>
-                        <button className="bg-transparent ml-4">
+                        <button className="bg-transparent ml-4" onClick={onClickDelete}>
                             <i class="fas fa-trash text-blueGray-400"></i>
                         </button>
                     </td>
