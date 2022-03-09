@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from "react";
 import Popup from "reactjs-popup";
-import "./Product.css";
+
 export const Product = ({
     children,
     data,
@@ -23,87 +23,50 @@ export const Product = ({
         }
     }, [isClicked]);
     return (
-        <Popup trigger={children} modal nested onClose={() => setErrors({})}>
-            {(close) => (
-                <div className="modal">
-                    <button className="close" onClick={close}>
+        <Popup trigger={children} modal={true} position="center center">
+        {(close) => (
+            <div className="p-3">
+                <div className="flex justify-between mb-2">
+                    <h2 className="font-bold">
+                        Add Users (email detected)
+                    </h2>
+                    <a
+                        className="close text-lg cursor-pointer"
+                        onClick={close}
+                    >
                         &times;
-                    </button>
-                    <div className="header">
-                        {" "}
-                        {isUpdate ? "Update" : "Add"} Product{" "}
-                    </div>
-                    <div className="content">
-                        <div className="p-3">
-                            <form>
-                                <div className="flex flex-col my-2">
-                                    <div className="-mx-3 md:flex mb-6">
-                                        <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                                            <label
-                                                class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                                                for="grid-first-name"
-                                            >
-                                                Name
-                                            </label>
-                                            <input
-                                                className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                                                id="grid-first-name"
-                                                type="text"
-                                                name="name"
-                                                placeholder=" "
-                                                required
-                                                value={product.name}
-                                                onChange={handleonChange}
-                                            />
-                                            <span className="text-red-400 text-xs">
-                                                {errors?.name}
-                                            </span>
-                                        </div>
-                                        <div className="md:w-1/2 px-3">
-                                            <label
-                                                className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                                                for="grid-last-name"
-                                            >
-                                                Gender
-                                            </label>
-
-                                            <select
-                                                className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                                                name="gender"
-                                                value={product.gender}
-                                                onChange={handleonChange}
-                                            >
-                                                <option value=""></option>
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
-                                                <option>Prefer Not Say</option>
-                                            </select>
-                                            <span className="text-red-400 text-xs">
-                                                {errors?.gender}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            
-                                <button
-                                    type="button"
-                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto float-right px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                    onClick={() => {
-                                        setIsClicked(true);
-                                        if (success) {
-                                            close();
-                                        }
-                                    }}
-                                >
-                                    Submit
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-            )}
-        </Popup>
+                <hr className="mb-4" />
+                <form >
+                    <div className="relative z-0 mb-6 w-full group">
+                        <textarea
+                            name="users"
+                            id="floating_company"
+                            className="block py-3.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" "
+                            required
+                            // value={value}
+                            // onChange={(e) => setValue(e.target.value)}
+                            size="44"
+                        ></textarea>
+                        <label
+                            for="floating_company"
+                            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Users ( email per line ...)
+                        </label>
+                    </div>
+                    <button
+                        type="submit"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        //    disabled={notValid > 0}
+                    >
+                        {/* {isLoading ?"Loading ..." : "Submit"} */}
+                    </button>
+                </form>
+            </div>
+        )}
+    </Popup>
     );
 };

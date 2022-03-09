@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Card, ProductsToolbar, TableProduct } from '../../../components'
 
 const Products = ({ }) => {
@@ -12,9 +11,4 @@ const Products = ({ }) => {
         </>
     )
 }
-
-Products.propTypes = {
-
-}
-
 export default Products

@@ -1,3 +1,5 @@
+import { Product } from "../Product"
+
 /* eslint-disable import/no-anonymous-default-export */
 export const Table = () => {
     return (<>
@@ -41,10 +43,12 @@ export const Table = () => {
                         <button className="bg-transparent">
                             <i class="fas fa-eye text-blueGray-400"></i>
                         </button>
-                   
-                        <button className="bg-transparent ml-4">
-                            <i class="fas fa-pen text-blueGray-400"></i>
-                        </button>
+                        <Product data={{name:"test"}} isUpdate handle={()=>{console.log("test")}}>
+
+                            <button className="bg-transparent ml-4">
+                                <i class="fas fa-pen text-blueGray-400"></i>
+                            </button>
+                        </Product>
                         <button className="bg-transparent ml-4">
                             <i class="fas fa-trash text-blueGray-400"></i>
                         </button>
