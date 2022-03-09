@@ -119,7 +119,7 @@ export const Product = ({
                                         Name
                                     </h6>
                                     <h2>
-                                        Product
+                                        {product.name}
                                     </h2>
                                     <hr />
 
@@ -129,7 +129,8 @@ export const Product = ({
                                         Price
                                     </h6>
                                     <h2>
-                                        120£
+                                    {product.price}
+                                        £
                                     </h2>
                                     <hr />
 
@@ -139,7 +140,8 @@ export const Product = ({
                                         Tva
                                     </h6>
                                     <h2>
-                                        20%
+                                    {product.tva}
+                                        %
                                     </h2>
                                     <hr />
 

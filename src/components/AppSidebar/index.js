@@ -13,6 +13,7 @@ export default () => {
                 <li className="hover:bg-gray-100">
                     <NavLink
                         to="/"
+                        data-tip="Dashboard"
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">
                         <svg
@@ -40,6 +41,8 @@ export default () => {
                 <li className="hover:bg-gray-100">
                     <NavLink
                         to={routeNames.products}
+                        data-tip="Products"
+
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">
                         <svg
@@ -62,6 +65,7 @@ export default () => {
 
                 <li className="hover:bg-gray-100">
                     <NavLink
+                        data-tip="Upload"
                         to={routeNames.upload}
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">

@@ -29,7 +29,7 @@ export default () => useRoutes([
     {
         path: "/upload",
         exact: true,
-        element: <DashboardLayout name="Products" icon="fa fa-store">
+        element: <DashboardLayout name="Upload" icon="fas fa-upload">
             <Upload />
         </DashboardLayout>,
 

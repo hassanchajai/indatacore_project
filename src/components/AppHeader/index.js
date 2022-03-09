@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { routeNames } from '../../helpers'
 import Avatar from '../Avatar'
@@ -8,6 +8,22 @@ import Avatar from '../Avatar'
 export default ({ name, icon }) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const navigate = useNavigate()
+    const menuRef = React.useRef(null);
+    const handleClickOutside = (e) => {
+        if (
+            menuRef.current &&
+            !menuRef.current.contains(e.target) 
+        ) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside, true);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside, true);
+        };
+    }, []);
     const handleonSignOut = () => {
         localStorage.removeItem('token')
         navigate(routeNames.signin)
@@ -29,7 +45,7 @@ export default ({ name, icon }) => {
                     </div>
                     {
                         isOpen && (<>  <div class="fixed inset-0 h-full w-full z-10"></div>
-                            <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20" onClick={() => setIsOpen(prev => !prev)}>
+                            <div ref={menuRef} className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20" onClick={() => setIsOpen(prev => !prev)}>
                                 <a href="#" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
                                     your profile
                                 </a>

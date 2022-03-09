@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
