@@ -1,5 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { routeNames } from '../../helpers'
 
 export default () => {
     return (
@@ -9,8 +11,8 @@ export default () => {
             <ul className='my-auto'>
 
                 <li className="hover:bg-gray-100">
-                    <a
-                        href="."
+                    <NavLink
+                        to="/"
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">
                         <svg
@@ -32,12 +34,12 @@ export default () => {
                                 0-1.79 1.11z"></path>
                         </svg>
 
-                    </a>
+                    </NavLink>
                 </li>
 
                 <li className="hover:bg-gray-100">
-                    <a
-                        href="."
+                    <NavLink
+                        to={routeNames.products}
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">
                         <svg
@@ -55,33 +57,18 @@ export default () => {
                                 d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                         </svg>
 
-                    </a>
+                    </NavLink>
                 </li>
 
                 <li className="hover:bg-gray-100">
-                    <a
-                        href="."
+                    <NavLink
+                        to={routeNames.upload}
                         className="h-16 px-6 flex flex justify-center items-center w-full
                         focus:text-orange-500">
 
-                        <svg
-                            className="h-5 w-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path
-                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2
-                                0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
+                     <i className="fas fa-upload"></i>
 
-                    </a>
+                    </NavLink>
                 </li>
 
                 <li className="hover:bg-gray-100">

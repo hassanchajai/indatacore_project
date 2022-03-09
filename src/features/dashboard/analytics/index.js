@@ -7,10 +7,10 @@ export const Analytics = () => {
     return (
         <div >
             <div class="flex w-full">
-               <AnalyticsCard description={"Orders"} count={15} icon={"fas fa-envelope"} color={"green-500"} />
-               <AnalyticsCard description={"Categories"} count={15} icon={"fas fa-envelope"} color={"[#00abe7]"} />
-               <AnalyticsCard description={"Users"} count={15} icon={"fas fa-envelope"} color={"[#ffb238]"} />
-               <AnalyticsCard description={"Orders"} count={15} icon={"fas fa-envelope"} color={"red-500"} />
+               <AnalyticsCard description={"Orders"} count={15} icon={"fas fa-chevron-up"} color={"bg-green-500"} />
+               <AnalyticsCard description={"Categories"} count={15} icon={"fas fa-home"} color={"bg-[#00abe7]"} />
+               <AnalyticsCard description={"Users"} count={15} icon={"fas fa-user"} color={"bg-[#ffb238]"} />
+               <AnalyticsCard description={"Products"} count={15} icon={"fa fa-store"} color={"bg-rose-500"} />
             </div>
             {/* content */}
             <div class="grid grid-cols-3 gap-3 px-5">
