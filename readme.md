@@ -1,3 +1,3 @@
 ## INDACATORE
 ### CODING CHALLENGE 
-#### DURATION : 3 days
+#### DURATION : 2 days
